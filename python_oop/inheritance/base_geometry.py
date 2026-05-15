@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
-"""Definition de la classe de base BaseGeometry."""
+"""Module defining the BaseGeometry class"""
 
 
 class BaseGeometry:
-    """Classe de base representant une forme geometrique generique."""
+    """Base class representing a generic geometric shape"""
 
     def area(self):
-        """Leve une exception car la methode n'est pas encore implementee."""
+        """Raise an exception because the method is not implemented"""
+
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
-        """Valide que value est un entier strictement positif."""
+        """Validate that value is a strictly positive integer"""
+
         if type(value) is not int:
             raise TypeError(f"{name} must be an integer")
         if value <= 0:
