@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
-"""Definition de la classe Rectangle qui herite de BaseGeometry."""
+"""Module defining the Rectangle class that inherits from BaseGeometry"""
+
+
 BaseGeometry = __import__('base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
-    """Rectangle defini par une largeur et une hauteur, valeurs validees."""
+    """Rectangle defined by a width and a height, both validated"""
 
     def __init__(self, width, height):
-        """Initialise un Rectangle avec width et height entiers positifs."""
+        """Initialize a Rectangle with positive integer width and height"""
+
         self.integer_validator("width", width)
         self.integer_validator("height", height)
         self.__width = width
