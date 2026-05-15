@@ -1,28 +1,31 @@
 #!/usr/bin/env python3
-"""Demonstration de l'heritage et du polymorphisme avec des animaux."""
+"""Module demonstrating inheritance and polymorphism with animals"""
 
 
 class Animal:
-    """Classe parent representant un animal generique."""
+    """Parent class representing a generic animal"""
 
     def speak(self):
-        """Retourne le son par defaut d'un animal."""
+        """Return the default sound of an animal"""
+
         return "Some sound"
 
 
 class Dog(Animal):
-    """Sous-classe d'Animal representant un chien."""
+    """Subclass of Animal representing a dog"""
 
     def speak(self):
-        """Retourne le son emis par un chien."""
+        """Return the sound made by a dog"""
+
         return "Woof"
 
 
 class Cat(Animal):
-    """Sous-classe d'Animal representant un chat."""
+    """Subclass of Animal representing a cat"""
 
     def speak(self):
-        """Retourne le son emis par un chat."""
+        """Return the sound made by a cat"""
+
         return "Meow"
 
 
