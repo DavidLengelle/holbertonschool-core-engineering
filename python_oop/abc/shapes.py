@@ -37,8 +37,8 @@ class Rectangle(Shape):
     """Subclass of Shape that represents a rectangle."""
     def __init__(self, width, height):
         """Initialize a rectangle with the given width and height."""
-        self.width = abs(width)
-        self.height = abs(height)
+        self.width = width
+        self.height = height
 
     def area(self):
         """Return the area of the rectangle."""
