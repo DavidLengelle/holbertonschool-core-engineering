@@ -22,7 +22,7 @@ class Circle(Shape):
     """Subclass of Shape that represents a circle."""
     def __init__(self, radius):
         """Initialize a circle with the given radius."""
-        self.radius = radius
+        self.radius = abs(radius)
 
     def area(self):
         """Return the area of the circle."""
@@ -37,8 +37,8 @@ class Rectangle(Shape):
     """Subclass of Shape that represents a rectangle."""
     def __init__(self, width, height):
         """Initialize a rectangle with the given width and height."""
-        self.width = width
-        self.height = height
+        self.width = abs(width)
+        self.height = abs(height)
 
     def area(self):
         """Return the area of the rectangle."""
