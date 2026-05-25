@@ -1,13 +1,10 @@
 #!/usr/bin/env python3
-"""Module that reads a text file and prints it to standard output."""
+"""Read a text file and print it to stdout"""
 
 
 def read_file(filename=""):
-    """Read a UTF-8 text file and print its content to stdout.
+    """Read filename and print its content to standard output"""
 
-    Args:
-        filename (str): The path of the file to read.
-    """
     with open(filename, mode="r", encoding="utf-8") as f:
         content = f.read()
         print(content, end="")
