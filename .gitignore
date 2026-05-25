@@ -8,3 +8,7 @@ __pycache__/
 venv/
 .venv/
 env/
+
+# Test files (local only, not graded)
+test.py
+my_file_*.txt
