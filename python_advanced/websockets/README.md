@@ -37,6 +37,7 @@ python3 -c "import websockets; print(websockets.__version__)"
 | File | Task | Description |
 | --- | --- | --- |
 | `echo_server.py` | 0 | WebSocket server on `localhost:8765` that echoes back every message it receives, while keeping the connection open |
+| `ws_client.py` | 1 | WebSocket client that connects to the echo server, sends one message, prints the reply, and closes the connection |
 
 ## Usage
 
@@ -48,6 +49,12 @@ python3 echo_server.py
 
 The server listens on `localhost`, port `8765`, and accepts multiple concurrent
 clients.
+
+With the server running, the client sends one message and prints the reply:
+
+```bash
+python3 ws_client.py
+```
 
 ## Testing
 
