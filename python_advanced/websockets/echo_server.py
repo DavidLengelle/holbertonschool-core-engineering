@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """WebSocket echo server listening on localhost port 8765"""
 
 import asyncio
