@@ -18,6 +18,6 @@ async def connect_and_send(ws_server_url: str, msg_to_send: str) -> str:
 
 if __name__ == "__main__":
     ws_uri = os.environ.get("WS_URI", "ws://localhost:8765")
-    ws_message = os.environ.get("WS_MESSAGE", "Hello WebSocket")
+    ws_message = os.environ.get("WS_MESSAGE", "demo")
     reply = asyncio.run(connect_and_send(ws_uri, ws_message))
-    print(reply)
+    print(reply, end="")
