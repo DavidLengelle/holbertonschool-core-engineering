@@ -38,6 +38,7 @@ python3 -c "import websockets; print(websockets.__version__)"
 | --- | --- | --- |
 | `echo_server.py` | 0 | WebSocket server on `localhost:8765` that echoes back every message it receives, while keeping the connection open |
 | `ws_client.py` | 1 | WebSocket client that connects to the echo server, sends one message, prints the reply, and closes the connection |
+| `validation_server.py` | 2 | WebSocket server that replies `OK:<message>` for a valid message or `ERR:EMPTY` for a blank one, keeping the connection open |
 
 ## Usage
 
