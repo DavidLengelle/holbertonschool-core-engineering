@@ -42,7 +42,10 @@ python3 -c "import websockets; print(websockets.__version__)"
 | `validation_server.py` | 2 | WebSocket server that replies `OK:<message>` for a valid message or `ERR:EMPTY` for a blank one, keeping the connection open |
 | `unicast_server.py` | 3 | WebSocket server that tracks connected clients in a set and unicasts each reply (prefixed `U:`) only to its sender |
 | `broadcast_server.py` | 4 | WebSocket server that broadcasts each message (prefixed `B:`) to every connected client |
-| `asgi_server.py` | 5 | Starlette ASGI app serving an HTML page at `/` and a WebSocket echo endpoint at `/ws`, run with Uvicorn on port 8000 |
+| `asgi_server.py` | 5 | Starlette ASGI app serving the browser chat client and a WebSocket echo endpoint at `/ws`, run with Uvicorn on port 8000 |
+| `index.html` | 6 | Browser chat client: a text input, a send button, and a live message area |
+| `styles.css` | 6 | Styling for the chat client, distinguishing sent from received messages |
+| `chat.js` | 6 | Browser WebSocket logic: connect to `/ws`, send messages, and display them in real time |
 
 ## Usage
 
@@ -82,15 +85,15 @@ client, like a chat room:
 python3 broadcast_server.py
 ```
 
-The ASGI app (task 5) is different: it serves an HTML page at `/` and a
+The ASGI app (tasks 5 and 6) serves the browser chat client at `/` and a
 WebSocket echo at `/ws`, and it is started with Uvicorn on port 8000:
 
 ```bash
 uvicorn asgi_server:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-Then open http://localhost:8000 in a browser, and connect a WebSocket client to
-`ws://localhost:8000/ws`.
+Then open http://localhost:8000 in a browser: the chat client loads, connects to
+`ws://localhost:8000/ws`, and you can exchange messages in real time.
 
 ## Testing
 
