@@ -57,6 +57,13 @@ With the server running, the client sends one message and prints the reply:
 python3 ws_client.py
 ```
 
+The validation server checks each message and replies `OK:<message>`, or
+`ERR:EMPTY` when the message is empty or blank:
+
+```bash
+python3 validation_server.py
+```
+
 ## Testing
 
 In a second terminal, use the interactive client provided by `websockets`:
