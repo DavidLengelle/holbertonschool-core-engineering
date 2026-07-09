@@ -4,17 +4,21 @@
 import asyncio
 
 from websockets.asyncio.server import ServerConnection, serve
+from websockets.exceptions import ConnectionClosed
 
 
 async def connection_handler(websocket: ServerConnection) -> None:
     """Reply OK: with the message, or ERR:EMPTY when it is blank"""
 
-    async for message in websocket:
-        cleaned = message.strip()
-        if cleaned == "":
-            await websocket.send("ERR:EMPTY")
-        else:
-            await websocket.send("OK:" + message)
+    try:
+        async for message in websocket:
+            cleaned = message.strip()
+            if cleaned == "":
+                await websocket.send("ERR:EMPTY")
+            else:
+                await websocket.send("OK:" + message)
+    except ConnectionClosed:
+        pass
 
 
 async def main() -> None:
@@ -25,4 +29,7 @@ async def main() -> None:
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        pass
