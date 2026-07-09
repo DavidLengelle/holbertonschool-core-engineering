@@ -39,6 +39,7 @@ python3 -c "import websockets; print(websockets.__version__)"
 | `echo_server.py` | 0 | WebSocket server on `localhost:8765` that echoes back every message it receives, while keeping the connection open |
 | `ws_client.py` | 1 | WebSocket client that connects to the echo server, sends one message, prints the reply, and closes the connection |
 | `validation_server.py` | 2 | WebSocket server that replies `OK:<message>` for a valid message or `ERR:EMPTY` for a blank one, keeping the connection open |
+| `unicast_server.py` | 3 | WebSocket server that tracks connected clients in a set and unicasts each reply (prefixed `U:`) only to its sender |
 
 ## Usage
 
@@ -62,6 +63,13 @@ The validation server checks each message and replies `OK:<message>`, or
 
 ```bash
 python3 validation_server.py
+```
+
+The unicast server tracks connected clients and sends each reply (prefixed
+`U:`) only to the client that sent the message:
+
+```bash
+python3 unicast_server.py
 ```
 
 ## Testing
