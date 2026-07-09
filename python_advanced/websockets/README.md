@@ -14,16 +14,17 @@ communication system step by step.
 - Python 3.x
 - The `websockets` library (version 13 or newer: this code uses the modern
   `websockets.asyncio` API)
+- `starlette` (ASGI web framework) and `uvicorn` (ASGI server), used in task 5
 - Asynchronous programming with `async` / `await`
 
 ## Setup
 
-The `websockets` library is installed in a local virtual environment:
+The dependencies are installed in a local virtual environment:
 
 ```bash
 python3 -m venv venv
 source venv/bin/activate
-pip install websockets
+pip install websockets starlette uvicorn
 ```
 
 Check the installed version:
@@ -41,6 +42,7 @@ python3 -c "import websockets; print(websockets.__version__)"
 | `validation_server.py` | 2 | WebSocket server that replies `OK:<message>` for a valid message or `ERR:EMPTY` for a blank one, keeping the connection open |
 | `unicast_server.py` | 3 | WebSocket server that tracks connected clients in a set and unicasts each reply (prefixed `U:`) only to its sender |
 | `broadcast_server.py` | 4 | WebSocket server that broadcasts each message (prefixed `B:`) to every connected client |
+| `asgi_server.py` | 5 | Starlette ASGI app serving an HTML page at `/` and a WebSocket echo endpoint at `/ws`, run with Uvicorn on port 8000 |
 
 ## Usage
 
@@ -79,6 +81,16 @@ client, like a chat room:
 ```bash
 python3 broadcast_server.py
 ```
+
+The ASGI app (task 5) is different: it serves an HTML page at `/` and a
+WebSocket echo at `/ws`, and it is started with Uvicorn on port 8000:
+
+```bash
+uvicorn asgi_server:app --host 0.0.0.0 --port 8000 --reload
+```
+
+Then open http://localhost:8000 in a browser, and connect a WebSocket client to
+`ws://localhost:8000/ws`.
 
 ## Testing
 
